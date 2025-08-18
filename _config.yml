@@ -1,0 +1,17 @@
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+      category: "uncategorized"
+      tags: []
+      summary: ""
+      date: 2020-01-01
+
+permalink: pretty
