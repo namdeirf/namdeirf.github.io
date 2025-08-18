@@ -1,3 +1,10 @@
+# _config.yml
+title: "namdeirf — Jeff ErnstFriedman"   # optional but nice
+
+# IMPORTANT for user sites (namdeirf.github.io)
+baseurl: ""                               # keep empty
+url: "https://namdeirf.com"               # optional
+
 collections:
   projects:
     output: true
@@ -5,6 +12,7 @@ collections:
   brand:
     output: true
     permalink: /brand/:title/
+
 defaults:
   - scope:
       path: ""
@@ -19,12 +27,9 @@ defaults:
       type: "brand"
     values:
       layout: brand_item
-      published: false          # start unpublished; flip to true per item
-      type: "article"          # content type (article, meetup, blog, social, asset)
+      published: false         # flip to true per item
+      type: "article"          # article | meetup | blog | social | asset
       summary: ""
-      impact: []                # list of concrete results/metrics
-
-
-
+      impact: []               # list of results/metrics
 
 permalink: pretty
