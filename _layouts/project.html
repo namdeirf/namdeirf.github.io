@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} · Projects</title>
+  <link rel="stylesheet" href="/assets/css/projects.css">
+</head>
+<body class="project">
+  <article class="project-detail container">
+    <a class="back" href="/projects/">← All projects</a>
+    <header>
+      <h1>{{ page.title }}</h1>
+      <p class="eyebrow">{{ page.category | capitalize }}{% if page.role %} · {{ page.role }}{% endif %}{% if page.year %} · {{ page.year }}{% endif %}</p>
+      {% if page.thumb %}
+        <img class="hero" src="{{ page.thumb }}" alt="">
+      {% endif %}
+      {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+      {% if page.links %}
+        <p class="links">
+          {% for l in page.links %}
+            <a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% unless forloop.last %} · {% endunless %}
+          {% endfor %}
+        </p>
+      {% endif %}
+    </header>
+
+    <section class="content">
+      {{ content }}
+    </section>
+
+    {% if page.highlights %}
+      <section class="highlights">
+        <h2>Highlights</h2>
+        <ul>
+          {% for item in page.highlights %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
+    {% if page.stack %}
+      <section class="stack">
+        <h2>Stack</h2>
+        <ul>
+          {% for s in page.stack %}
+            <li>{{ s }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+  </article>
+</body>
+</html>
