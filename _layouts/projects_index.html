@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · {{ site.title | default: site.github.owner_name }}</title>
+  <link rel="stylesheet" href="/assets/css/projects.css">
+</head>
+<body class="projects">
+  <main class="container">
+    <header class="page-header">
+      <h1>Projects</h1>
+      <p class="lede">Browse by high‑level category, then drill into project details.</p>
+    </header>
+
+    {% assign groups = site.projects | group_by: 'category' | sort: 'name' %}
+
+    <section class="category-grid">
+      {% for g in groups %}
+        <a class="category-card" href="#{{ g.name | slugify }}" data-cat="{{ g.name | slugify }}">
+          <div class="category-card__title">{{ g.name | capitalize }}</div>
+          <div class="category-card__count">{{ g.items | size }} project{% if g.items.size != 1 %}s{% endif %}</div>
+        </a>
+      {% endfor %}
+    </section>
+
+    <section class="category-lists">
+      {% for g in groups %}
+        <div class="category-list" id="{{ g.name | slugify }}">
+          <h2>{{ g.name | capitalize }}</h2>
+          <div class="cards">
+            {% assign sorted = g.items | sort: 'date' | reverse %}
+            {% for p in sorted %}
+              {% include project-card.html project=p %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+  </main>
+
+  <script>
+    // Simple in-page filter: clicking a category jumps and highlights
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const id = card.getAttribute('data-cat');
+        // remove previous highlight
+        document.querySelectorAll('.category-list').forEach(list => list.classList.remove('is-active'));
+        // highlight target
+        const el = document.getElementById(id);
+        if (el) el.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>
