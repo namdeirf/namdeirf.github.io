@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand & Content · {{ site.title | default: site.github.owner_name }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/projects.css' | relative_url }}">
+  <style>
+    .progress { background:#eee; border-radius:10px; height:10px; overflow:hidden; }
+    .progress > i { display:block; height:100%; background:var(--accent); width:0%; }
+    .page-empty { color: var(--muted); }
+    .category-card__blurb { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+  </style>
+</head>
+<body class="projects brand">
+  <main class="container">
+    <header class="page-header">
+      <h1>Brand & Content</h1>
+      <p class="lede">Stories, programs, and assets across articles, meetups, blogs, social, and enablement.</p>
+    </header>
+
+    {% assign all = site.brand %}
+    {% assign live = all | where_exp: 'i','i.published == true' %}
+    {% assign n = live | size %}
+
+    {% if n < 10 %}
+      <!-- Gated view until you have at least 10 published items -->
+      <section>
+        <h2>Publishing soon</h2>
+        <p class="page-empty">You have <strong>{{ n }}</strong>/10 examples ready. Add {{ 10 | minus: n }} more to unlock the full showcase.</p>
+        <div class="progress" aria-label="Progress to 10">
+          <i style="width: {{ n | times: 10 }}%"></i>
+        </div>
+      </section>
+
+      {% comment %} Editor checklist (visible in dev OR even in prod; safe text) {% endcomment %}
+      <section class="category-list">
+        <h3>Editor checklist</h3>
+        <div class="cards">
+          {% for p in all %}
+            <div class="project-card">
+              <div class="project-card__body">
+                <h3 class="project-card__title">{{ p.title | default: p.path }}</h3>
+                <ul class="project-card__meta">
+                  <li>Type: {{ p.type | default: '—' }}</li>
+                  <li>Year: {{ p.year | default: '—' }}</li>
+                  <li>Status: {% if p.published %}Published{% else %}Draft{% endif %}</li>
+                </ul>
+                <ul class="project-card__meta">
+                  <li>{% if p.summary %}✓ Summary{% else %}✗ Summary{% endif %}</li>
+                  <li>{% if p.impact and p.impact.size > 0 %}✓ Impact{% else %}✗ Impact{% endif %}</li>
+                  <li>{% if p.thumb %}✓ Thumb{% else %}✗ Thumb{% endif %}</li>
+                  <li>{% if p.links and p.links.size > 0 %}✓ Links{% else %}✗ Links{% endif %}</li>
+                </ul>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <p class="page-empty">Tip: Flip <code>published: true</code> on each entry when it's complete.</p>
+    {% else %}
+      <!-- Full showcase once you hit 10 published items -->
+      {% assign groups = live | group_by: 'type' %}
+      {% assign types = site.data.brand_types %}
+
+      <section class="category-grid">
+        {% if types %}
+          {% for t in types %}
+            {% assign g = groups | where: 'name', t.key | first %}
+            <a class="category-card" href="#{{ t.key | slugify }}" data-cat="{{ t.key | slugify }}">
+              <div class="category-card__title">{{ t.label }}</div>
+              <div class="category-card__count">{% if g %}{{ g.items | size }} item{% if g.items.size != 1 %}s{% endif %}{% else %}0 items{% endif %}</div>
+              {% if t.blurb %}<div class="category-card__blurb">{{ t.blurb }}</div>{% endif %}
+            </a>
+          {% endfor %}
+        {% else %}
+          {% for g in groups %}
+            <a class="category-card" href="#{{ g.name | slugify }}" data-cat="{{ g.name | slugify }}">
+              <div class="category-card__title">{{ g.name | capitalize }}</div>
+              <div class="category-card__count">{{ g.items | size }} item{% if g.items.size != 1 %}s{% endif %}</div>
+            </a>
+          {% endfor %}
+        {% endif %}
+      </section>
+
+      <section class="category-lists">
+        {% if types %}
+          {% for t in types %}
+            {% assign g = groups | where: 'name', t.key | first %}
+            <div class="category-list" id="{{ t.key | slugify }}">
+              <h2>{{ t.label }}</h2>
+              {% if g %}
+                <div class="cards">
+                  {% for p in g.items %}
+                    {% include brand-card.html item=p %}
+                  {% endfor %}
+                </div>
+              {% else %}
+                <p class="page-empty">No items yet.</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for g in groups %}
+            <div class="category-list" id="{{ g.name | slugify }}">
+              <h2>{{ g.name | capitalize }}</h2>
+              <div class="cards">
+                {% for p in g.items %}
+                  {% include brand-card.html item=p %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </section>
+    {% endif %}
+  </main>
+
+  <script>
+    // Highlight target list on click
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.category-list').forEach(s => s.classList.remove('is-active'));
+        const id = card.getAttribute('data-cat');
+        const el = document.getElementById(id);
+        if (el) el.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>
