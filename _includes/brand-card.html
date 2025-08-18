@@ -1,0 +1,17 @@
+<div class="project-card">
+  <a class="project-card__link" href="{{ include.item.url }}">
+    {% if include.item.thumb %}
+      <img class="project-card__img" src="{{ include.item.thumb }}" alt="">
+    {% endif %}
+    <div class="project-card__body">
+      <h3 class="project-card__title">{{ include.item.title }}</h3>
+      {% if include.item.summary %}
+        <p class="project-card__summary">{{ include.item.summary }}</p>
+      {% endif %}
+      <ul class="project-card__meta">
+        <li>{{ include.item.type | capitalize }}</li>
+        <li>{{ include.item.year | default: include.item.date | date: "%Y" }}</li>
+      </ul>
+    </div>
+  </a>
+</div>
