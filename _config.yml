@@ -2,7 +2,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:title/
-
+  brand:
+    output: true
+    permalink: /brand/:title/
 defaults:
   - scope:
       path: ""
@@ -12,6 +14,17 @@ defaults:
       category: "uncategorized"
       tags: []
       summary: ""
+  - scope:
+      path: ""
+      type: "brand"
+    values:
+      layout: brand_item
+      published: false          # start unpublished; flip to true per item
+      type: "article"          # content type (article, meetup, blog, social, asset)
+      summary: ""
+      impact: []                # list of concrete results/metrics
+
+
 
 
 permalink: pretty
