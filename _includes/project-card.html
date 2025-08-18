@@ -8,10 +8,14 @@
       {% if include.project.summary %}
         <p class="project-card__summary">{{ include.project.summary }}</p>
       {% endif %}
-      <ul class="project-card__meta">
-        <li>{{ include.project.role | default: "" }}</li>
-        <li>{{ include.project.year | default: include.project.date | date: "%Y" }}</li>
-      </ul>
+<ul class="project-card__meta">
+  {% if include.project.role %}<li>{{ include.project.role }}</li>{% endif %}
+  {% if include.project.year %}
+    <li>{{ include.project.year }}</li>
+  {% elsif include.project.date %}
+    <li>{{ include.project.date | date: "%Y" }}</li>
+  {% endif %}
+</ul>
     </div>
   </a>
 </div>
