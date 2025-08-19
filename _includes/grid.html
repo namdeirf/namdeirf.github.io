@@ -1,0 +1,6 @@
+<section class="grid" id="grid" aria-live="polite">
+  {% assign projects = site.data.projects | default: [] %}
+  {% for item in projects %}
+    {% include card.html item=item %}
+  {% endfor %}
+</section>
