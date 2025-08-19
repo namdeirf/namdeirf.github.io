@@ -1,18 +1,15 @@
 ---
-title: Case Studies
+title: "Case Studies"
 permalink: /case-studies/
-layout: default   # or whatever layout your site uses; can be `none` if you want a blank canvas
+layout: default   # or none if you don’t want your site’s header/footer
 ---
 
-<link rel="preload" href="{{ site.baseurl }}/assets/cases/site.css" as="style">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/cases/site.css">
 
 <div class="cases wrap">
-  <header class="cases__site" aria-labelledby="title">
-    <div>
-      <h1 id="title">Case Studies</h1>
-      <p>Consulting-style cards with <strong>challenge → approach → results</strong>. Filter or search by tags.</p>
-    </div>
+  <header class="cases__site">
+    <h1>Case Studies</h1>
+    <p>Consulting-style cards with <strong>challenge → approach → results</strong>.</p>
   </header>
 
   {% include cases/filters.html %}
