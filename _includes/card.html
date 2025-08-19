@@ -1,0 +1,33 @@
+<article class="card" data-tags="{{ item.tags | join: ',' }}" data-year="{{ item.years | escape }}" data-client="{{ item.client | escape }}">
+  <div class="media" role="img" aria-label="{{ item.media_aria | default: 'Project cover' }}">
+    {% if item.image %}
+      <img src="{{ item.image }}" alt="{{ item.title }} thumbnail" loading="lazy"/>
+    {% endif %}
+  </div>
+  <header>
+    <h3>{{ item.title }}</h3>
+    <div class="meta">
+      <span class="tagpill">{{ item.client }}{% if item.client_suffix %} · {{ item.client_suffix }}{% endif %}</span>
+      <span class="tagpill">{{ item.years }}</span>
+    </div>
+  </header>
+  <div class="body">
+    <p><strong>Challenge:</strong> {{ item.challenge }}</p>
+  </div>
+  <ul class="results" aria-label="Results">
+    {% for r in item.results %}
+      <li>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7 9.5 17.5 4 12" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>{{ r }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="foot">
+    <details>
+      <summary class="more">Read more</summary>
+      <div class="body" style="padding-top:10px">
+        <p><strong>Approach:</strong> {{ item.approach }}</p>
+      </div>
+    </details>
+  </div>
+</article>
