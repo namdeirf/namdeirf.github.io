@@ -1,0 +1,70 @@
+id: lg-site
+  title: Dynamic Industry Website Redesign
+  client: LooseGrip
+  client_suffix: B2B Tech
+  years: 2022–2025
+  tags: [product-marketing, analytics, b2b]
+  challenge: A static quarterly PDF limited engagement and slowed updates.
+  approach: Replaced PDF with a dynamic, content-rich site; advocated accessible UX and clear content structure; added analytics for iteration.
+  results:
+    - "+20% YoY engaged sessions"
+    - "+5% users; +20s dwell time (year two)"
+
+- id: lg-intake
+  title: Automated Campaign Intake Workflow
+  client: LooseGrip
+  client_suffix: Enterprise Partners
+  years: 2023–2025
+  tags: [workflow, product-marketing, b2b, analytics]
+  challenge: Manual intake and excessive back-and-forth slowed launches.
+  approach: Built a self-serve intake with validation, routing, and status visibility; added SLA tracking.
+  results:
+    - "Turnaround: 15 → 10 days (33% faster)"
+    - "Partner communication steps ↓ 65%"
+
+- id: ota-devrel
+  title: Developer Outreach Expansion
+  client: OpenTravel Alliance
+  client_suffix: API Standard
+  years: 2019–2022
+  tags: [developer-relations, product-marketing, b2b]
+  challenge: Adoption limited to travel insiders; needed broader developer traction.
+  approach: Reframed value proposition; launched dev-focused content, enablement docs, and event programming.
+  results:
+    - "2,000+ professionals reached via webinars & conferences"
+    - "Expanded adoption across SaaS & enterprise providers"
+
+- id: lf-growth
+  title: Open Source Community Growth
+  client: Linux Foundation
+  client_suffix: Multi‑project
+  years: 2016–2018
+  tags: [open-source, product-marketing]
+  challenge: Inconsistent onboarding and low steering committee engagement.
+  approach: Standardized docs & toolkits across 10+ projects; launched an annual conference and meetups; unified brand and contributor journeys.
+  results:
+    - "Standardized docs & toolkits across 10+ projects"
+    - "Steering committee participation ↑ 300%"
+
+- id: lgc-enterprise
+  title: Enterprise Marketing Campaigns
+  client: Cisco · Verisign · Dimension Data · Dell EMC
+  years: 2013–2016
+  tags: [b2b, product-marketing, analytics]
+  challenge: Build GTM plays that outperform in competitive B2B markets.
+  approach: Directed multichannel campaigns; built GTM playbooks aligned to enterprise buyer journeys; iterated via performance analytics.
+  results:
+    - "$500K+ annual ad spend managed"
+    - "2× industry benchmark performance"
+
+- id: maplight-integrity
+  title: Campaign Finance Data Integrity
+  client: MapLight
+  client_suffix: Research
+  years: 2010–2013
+  tags: [nonprofit, analytics]
+  challenge: Ensure high-integrity datasets powering national media and advocacy.
+  approach: Built collection and QA processes; aligned editorial output with mission; documented methodologies for transparency.
+  results:
+    - "Integrity maintained across tens of thousands of records"
+    - "Data cited widely by national outlets"
