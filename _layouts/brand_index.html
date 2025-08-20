@@ -23,13 +23,13 @@
     {% assign live = all | where_exp: 'i','i.published == true' %}
     {% assign n = live | size %}
 
-    {% if n < 10 %}
-      <!-- Gated view until you have at least 10 published items -->
+    {% if n < 6 %}
+      <!-- Gated view until you have at least 6 published items -->
       <section>
         <h2>Publishing soon</h2>
-        <p class="page-empty">You have <strong>{{ n }}</strong>/10 examples ready. Add {{ 10 | minus: n }} more to unlock the full showcase.</p>
-        <div class="progress" aria-label="Progress to 10">
-          <i style="width: {{ n | times: 10 }}%"></i>
+        <p class="page-empty">You have <strong>{{ n }}</strong>/6 examples ready. Add {{ 6 | minus: n }} more to unlock the full showcase.</p>
+        <div class="progress" aria-label="Progress to 6">
+          <i style="width: {{ n | times: 6 }}%"></i>
         </div>
       </section>
 
