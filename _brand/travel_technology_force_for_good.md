@@ -7,7 +7,7 @@ thumb: "/assets/img/brand/travel-tech-for-good-thumb.jpg"  # add a screenshot he
 summary: "Panel discussion on how open‑source and open collaboration can accelerate travel’s recovery and innovation."
 links:
   - { label: "Event page", url: "https://opentravel.org/webinar-travel-technology-as-a-force-for-good-open-source-a-major-opportunity/" }
-published: false
+published: true
 ---
 
 **Role.** Panelist (Executive Director, OpenTravel Alliance).
