@@ -7,7 +7,7 @@ thumb: "/assets/img/brand/apistrat-2017-thumb.jpg"
 summary: "Helped transition APIStrat to the Linux Foundation, co-located with another event and laying the groundwork for its stand-alone future."
 links:
   - { label: "OpenAPI Initiative Blog Post", url: "https://www.openapis.org/blog/2017/04/13/the-open-api-initiative-and-the-linux-foundation-to-produce-apistrat-17" }
-published: false
+published: true
 ---
 
 **Role.** Supported the transition of APIStrat into the **Linux Foundation events portfolio**.  
