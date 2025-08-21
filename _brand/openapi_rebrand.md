@@ -3,7 +3,7 @@ title: "OpenAPI Initiative Rebrand — Linux Foundation"
 type: "project"
 format: "brand transition"
 year: 2017
-thumb: "/assets/img/brand/openapi-rebrand-thumb.jpg"
+thumb: "assets/images/brand/openapi-rebrand-thumb.jpg"
 summary: "Led a rebrand of the OpenAPI Initiative to highlight its home within the Linux Foundation, launching a new logo and contributor badge campaign to drive awareness and adoption."
 links:
   - { label: "OpenAPI Initiative Blog Post", url: "https://www.openapis.org/uncategorized/2017/05/05/the-open-api-initiative-launches-openapi-spec-ambassador-program" }
